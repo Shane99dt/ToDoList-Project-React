@@ -31,6 +31,7 @@ class App extends React.Component {
       tasks: clonedTasks,
     });
   };
+  modify = () => {};
 
   modifyTask = (bool) => {
     // const clonedTasks = [...this.state.tasks]
@@ -46,10 +47,11 @@ class App extends React.Component {
       <div>
         <Form taskAdd={this.addTask} />
         <List
-          tasks = {this.state.tasks}
+          tasks={this.state.tasks}
           delete={this.deleteTask}
-          modifyFunction = {this.modifyTask}
+          modifyFunction={this.modifyTask}
         />
+        {/* <List task={this.props.tasks} /> */}
       </div>
     );
   }

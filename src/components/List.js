@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Task from "./Task";
 
 class List extends Component {
-
   render() {
     return (
       <section className="flex flex-col items-center border">
@@ -15,6 +14,11 @@ class List extends Component {
           />
         ))}
       </section>
+      // <>
+      //   {this.props.tasks.map((task) => {
+      //     console.log(task);
+      //   })}
+      // </>
     );
   }
 }
