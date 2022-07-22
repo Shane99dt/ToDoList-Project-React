@@ -11,6 +11,7 @@ class List extends Component {
             item = {item}
             index={i}
             delete = {this.props.delete}
+            modify = {this.props.modifyFunction}
           />
         ))}
       </section>

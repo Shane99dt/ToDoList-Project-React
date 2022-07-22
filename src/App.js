@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "./components/Form";
 import List from "./components/List";
+// import Task from "./components/Task";
 class App extends React.Component {
   constructor() {
     super();
@@ -31,10 +32,14 @@ class App extends React.Component {
     });
   };
 
-  // modifyTask = () => {
-  //   const clonedTasks = [...this.state.tasks]
+  modifyTask = (bool) => {
+    // const clonedTasks = [...this.state.tasks]
+    this.setState({
+      modify : bool
+    })
 
-  // }
+    console.log("task modified")
+  }
 
   render() {
     return (
