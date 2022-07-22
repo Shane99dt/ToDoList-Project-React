@@ -42,7 +42,7 @@ class Form extends React.Component {
             value={this.state.task}
             className="border"
           />
-          <button type="submit">Add task</button>
+          <button className="ml-2" type="submit">Add task</button>
         </form>
       </>
     );

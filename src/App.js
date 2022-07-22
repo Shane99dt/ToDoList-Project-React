@@ -27,12 +27,13 @@ class App extends React.Component {
     return (
       <div>
         <Form taskAdd={this.addTask} />
-
-        {this.state.tasks.map((item) => (
-          <List
-            task = {item.description}
-          />
-        ))}
+        <section className="flex flex-col items-center border">
+          {this.state.tasks.map((item) => (
+            <List
+              task = {item.description}
+            />
+          ))}
+        </section>
         {/* <List task={this.state.tasks} /> */}
       </div>
     );
