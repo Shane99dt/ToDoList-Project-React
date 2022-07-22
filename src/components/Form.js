@@ -1,12 +1,28 @@
 import React from 'react'
 
 class Form extends React.Component {
-	render() {
+  constructor(){
+    super()
+    this.state({
+      task: ""
+    })
+  }
+
+  handleTaskDescriptionChange = (e) => {
+    // this.setState({
+    //   task:
+    // })
+    console.log(e)
+  }
+
+  render() {
 		return(
       <>
-        <form>
-          <input type="text"/>
-          <button type='submit'></button>
+        <form onSubmit={this.props.formSubmit}>
+          <input type="text" />
+          <button type='submit'>
+            <img src="./images/plus.png" alt='Add task'/>
+          </button>
         </form>
       </>
 		)
