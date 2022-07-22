@@ -4,16 +4,14 @@ class List extends Component {
   constructor() {
     super();
   }
-  deleteTask = () => {
-    console.log(this.props.tasks);
-  };
+
   render() {
     console.log(this);
     return (
       <div>
         <p>{this.props.task}</p>
         <button>Modifier</button>
-        <button>Supprimer</button>
+        <button onClick={this.props.delete}>Supprimer</button>
       </div>
     );
   }
