@@ -12,16 +12,19 @@ class Form extends React.Component {
     this.setState(
       {
         task: e.target.value,
-      },
-      () => {
+      },() => {
         console.log(this.state.task);
       }
     );
   };
 
-  // handleSubmit = (e) => {
-  //   console.log(e + );
-  // };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.taskAdd(this.state.task)
+
+    // reset the value
+    this.setState({task : ""})
+  };
 
   render() {
     return (

@@ -9,15 +9,20 @@ class App extends React.Component {
       tasks: [],
     };
   }
-  addTask = (e) => {
-    e.preventDefault();
-    console.log(e + "je m'ajoute au form");
+
+  addTask = (taskTodo) => {
+    const clonedTasks = [...this.state.tasks, {description: taskTodo, status : "to do"}]
+
+    this.setState({
+      tasks : clonedTasks
+    })
   };
 
   render() {
+    console.log(this.state.tasks)
     return (
       <div>
-        <Form addTask={this.addTask} />
+        <Form taskAdd={this.addTask} />
       </div>
     );
   }
