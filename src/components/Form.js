@@ -20,7 +20,13 @@ class Form extends React.Component {
     );
   };
 
-  handleSubmit = () => {};
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.taskAdd(this.state.task);
+
+    // reset the value
+    this.setState({ task: "" });
+  };
 
   render() {
     // console.log(this);
@@ -34,6 +40,7 @@ class Form extends React.Component {
             type="text"
             onChange={this.handleTaskDescriptionChange}
             value={this.state.task}
+            className="border"
           />
           <button type="submit">Add task</button>
         </form>
