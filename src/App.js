@@ -13,22 +13,11 @@ class App extends React.Component {
     e.preventDefault();
     console.log(e + "je m'ajoute au form");
   };
-  handleTaskDescriptionChange = (e) => {
-    console.log(e + "description");
-  };
-  handleSubmit = (e) => {
-    console.log(e + "handle submit");
-  };
-
 
   render() {
     return (
       <div>
-        <Form
-          addTask={this.addTask}
-          change={this.handleTaskDescriptionChange}
-          submit={this.handleSubmit}
-        />
+        <Form addTask={this.addTask} />
       </div>
     );
   }
