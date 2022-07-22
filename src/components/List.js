@@ -5,6 +5,8 @@ class List extends Component {
     console.log(this);
     return (
       <div>
+        <p>{this.props.task}</p>
+        <button>Modifier</button>
         <button>Supprimer</button>
       </div>
     );
