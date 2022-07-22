@@ -1,3 +1,4 @@
+import { hasFormSubmit } from "@testing-library/user-event/dist/utils";
 import React from "react";
 
 class Form extends React.Component {
@@ -19,11 +20,10 @@ class Form extends React.Component {
     );
   };
 
-  // handleSubmit = (e) => {
-  //   console.log(e + );
-  // };
+  handleSubmit = () => {};
 
   render() {
+    // console.log(this);
     return (
       <>
         <form

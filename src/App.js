@@ -17,7 +17,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Form addTask={this.addTask} />
+        <Form formSubmit={this.addTask} />
+        <List />
       </div>
     );
   }
