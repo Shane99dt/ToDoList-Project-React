@@ -21,32 +21,32 @@ class App extends React.Component {
       tasks: clonedTasks,
     });
   };
-  deleteTask = (del, i) => {
-    const cloneTask = [...this.state.tasks];
 
-    if (i !== -1) {
-      cloneTask.splice(i, 1);
-      this.setState({people: cloneTask});
-    }
+  deleteTask = (i) => {
+    const clonedTasks = [...this.state.tasks];
+
+    clonedTasks.splice(i, 1);
 
     this.setState({
-      tasks: cloneTask,
+      tasks: clonedTasks,
     });
   };
+
+  // modifyTask = () => {
+  //   const clonedTasks = [...this.state.tasks]
+
+  // }
 
   render() {
     console.log(this.state.tasks);
     return (
       <div>
         <Form taskAdd={this.addTask} />
-        <section className="flex flex-col items-center border">
-          {this.state.tasks.map((item, i) => (
-            <List
-              task = {item.description}
-              delete={() => this.deleteTask(item, i)}
-            />
-          ))}
-        </section>
+        <List
+          tasks = {this.state.tasks}
+          delete={this.deleteTask}
+          modifyFunction = {this.modifyTask}
+        />
       </div>
     );
   }
