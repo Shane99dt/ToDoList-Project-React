@@ -37,6 +37,7 @@ class Form extends React.Component {
             type="text"
             onChange={this.handleTaskDescriptionChange}
             value={this.state.task}
+            className="border"
           />
           <button type="submit">Add task</button>
         </form>
