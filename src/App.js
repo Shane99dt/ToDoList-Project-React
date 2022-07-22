@@ -10,11 +10,15 @@ class App extends React.Component {
       status: "to do",
     };
   }
+  addTask = (e) => {
+    e.preventDefault();
+    console.log("task");
+  };
 
   render() {
     return (
       <div>
-        <Form />
+        <Form addTask={this.addTask} />
       </div>
     );
   }
