@@ -19,7 +19,7 @@ class Form extends React.Component {
 		return(
       <>
         <form onSubmit={this.props.formSubmit}>
-          <input type="text" />
+          <input type="text" onChange={this.handleTaskDescriptionChange}/>
           <button type='submit'>
             <img src="./images/plus.png" alt='Add task'/>
           </button>
@@ -29,4 +29,4 @@ class Form extends React.Component {
 	}
 }
 
-export default Form
+export default Form;

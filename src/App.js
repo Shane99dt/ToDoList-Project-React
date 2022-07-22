@@ -9,22 +9,19 @@ class App extends React.Component {
       tasks: [],
     };
   }
-
   addTask = (e) => {
     e.preventDefault();
-    console.log("bjkb");
-  }
+    console.log("task");
+  };
+
 
   render() {
-    console.log(this.addTask("add this "))
     return (
       <div>
-        <Form
-          formSubmit = {this.addTask}
-        />
+        <Form formSubmit={this.addTask} />
       </div>
     );
   }
 }
 
-export default App
+export default App;
