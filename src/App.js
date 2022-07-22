@@ -21,19 +21,17 @@ class App extends React.Component {
       tasks: clonedTasks,
     });
   };
-  deleteTask = (del) => {
+  deleteTask = (del, i) => {
     const cloneTask = [...this.state.tasks];
 
-    del.filter((de, i) => {
-      return console.log(de[i]);
-    });
-    console.log(del[0]);
-    // cloneTask.pop();
-    console.log(cloneTask);
+    if (i !== -1) {
+      cloneTask.splice(i, 1);
+      this.setState({ people: cloneTask });
+    }
+
     this.setState({
       tasks: cloneTask,
     });
-    // console.log(this.state.tasks);
   };
 
   render() {
@@ -42,10 +40,10 @@ class App extends React.Component {
       <div>
         <Form taskAdd={this.addTask} />
         <section className="flex flex-col items-center border">
-          {this.state.tasks.map((item) => (
+          {this.state.tasks.map((item, i) => (
             <List
               task={item.description}
-              delete={() => this.deleteTask(item)}
+              delete={() => this.deleteTask(item, i)}
             />
           ))}
         </section>
