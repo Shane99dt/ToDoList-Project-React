@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class List extends Component {
+  constructor() {
+    super();
+  }
+
   render() {
     console.log(this);
     return (
@@ -8,7 +12,7 @@ class List extends Component {
         <p className="w-3/5 pl-2 py-2">{this.props.task}</p>
         <div>
           <button className="p-2 ">Mod</button>
-          <button className="p-2">Sup</button>
+          <button className="p-2" onClick={this.props.delete}>Sup</button>
         </div>
       </div>
     );
