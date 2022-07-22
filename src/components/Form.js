@@ -16,7 +16,7 @@ class Form extends React.Component {
             onSubmit={this.props.submit}
             onChange={this.props.change}
           />
-          <button type="submit">zdfzvzs</button>
+          <button type="submit">Add task</button>
         </form>
       </>
     );

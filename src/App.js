@@ -17,7 +17,7 @@ class App extends React.Component {
     console.log(e + "description");
   };
   handleSubmit = (e) => {
-    console.log(e + );
+    console.log(e + "handle submit");
   };
 
 
