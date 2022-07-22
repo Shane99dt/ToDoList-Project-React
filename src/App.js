@@ -24,10 +24,12 @@ class App extends React.Component {
   deleteTask = (del) => {
     const cloneTask = [...this.state.tasks];
 
-    // cloneTask.filter((de, i) => {
-    //   de.pop();
-    // });
+    del.filter((de, i) => {
+      return console.log(de[i]);
+    });
+    console.log(del[0]);
     // cloneTask.pop();
+    console.log(cloneTask);
     this.setState({
       tasks: cloneTask,
     });
@@ -42,7 +44,7 @@ class App extends React.Component {
         <section className="flex flex-col items-center border">
           {this.state.tasks.map((item) => (
             <List
-              task = {item.description}
+              task={item.description}
               delete={() => this.deleteTask(item)}
             />
           ))}
