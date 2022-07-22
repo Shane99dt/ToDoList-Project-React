@@ -2,7 +2,12 @@ import React, { Component } from "react";
 
 class List extends Component {
   render() {
-    return <div></div>;
+    console.log(this);
+    return (
+      <div>
+        <button>Supprimer</button>
+      </div>
+    );
   }
 }
 
