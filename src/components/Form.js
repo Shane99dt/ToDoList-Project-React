@@ -1,25 +1,11 @@
 import React from 'react'
 
 class Form extends React.Component {
-  constructor(){
-    super()
-    this.state({
-      task: ""
-    })
-  }
-
-  handleTaskDescriptionChange = (e) => {
-    // this.setState({
-    //   task:
-    // })
-    console.log(e)
-  }
-
-  render() {
+	render() {
 		return(
       <>
-        <form onSubmit={this.props.formSubmit}>
-          <input type="text" onChange={this.handleTaskDescriptionChange}/>
+        <form onSubmit={this.props.formSubmit('jsdh')}>
+          <input type="text"/>
           <button type='submit'>
             <img src="./images/plus.png" alt='Add task'/>
           </button>
@@ -29,4 +15,4 @@ class Form extends React.Component {
 	}
 }
 
-export default Form;
+export default Form
