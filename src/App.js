@@ -33,6 +33,7 @@ class App extends React.Component {
       tasks: cloneTask,
     });
   };
+  modify = () => {};
 
   render() {
     console.log(this.state.tasks);
@@ -44,8 +45,10 @@ class App extends React.Component {
             <List
               task={item.description}
               delete={() => this.deleteTask(item, i)}
+              modify={() => this.modify()}
             />
           ))}
+          <Tasks />
         </section>
       </div>
     );
