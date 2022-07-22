@@ -11,12 +11,7 @@ class Form extends React.Component {
 
   handleTaskDescriptionChange = (e) => {
     this.setState(
-      {
-        task: e.target.value,
-      },
-      () => {
-        console.log(this.state.task);
-      }
+      {task: e.target.value,}
     );
   };
 

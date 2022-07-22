@@ -24,23 +24,39 @@ class App extends React.Component {
 
   deleteTask = (i) => {
     const clonedTasks = [...this.state.tasks];
-
     clonedTasks.splice(i, 1);
-
     this.setState({
       tasks: clonedTasks,
     });
   };
-  modify = () => {};
 
-  modifyTask = (bool) => {
-    // const clonedTasks = [...this.state.tasks]
+  modifyTask = (item, i) => {
+    const clonedTasks = [...this.state.tasks]
+    clonedTasks[i] = item
     this.setState({
-      modify : bool
+      tasks: clonedTasks,
     })
 
     console.log("task modified")
   }
+
+  // handleChangeStatus = (item, i) => {
+  //   const clonedTasks = [...this.state.tasks]
+  //   // clonedTasks[i].status = item.target.value
+  //   console.log(clonedTasks[i])
+  // }
+
+  // handleTaskDescriptionChange = (item, i) => {
+  //   const clonedTasks = [...this.state.tasks, ]
+
+  //   clonedTasks[i].description = item.target.value
+
+  //   this.setState({
+  //     tasks : clonedTasks
+  //   })
+
+  //   console.log(item)
+  // }
 
   render() {
     return (
@@ -50,6 +66,8 @@ class App extends React.Component {
           tasks={this.state.tasks}
           delete={this.deleteTask}
           modifyFunction={this.modifyTask}
+          changeStatusFn = {this.handleChangeStatus}
+          changeInput = {this.handleTaskDescriptionChange}
         />
         {/* <List task={this.props.tasks} /> */}
       </div>
