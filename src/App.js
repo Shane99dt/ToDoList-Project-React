@@ -1,18 +1,20 @@
-import React from 'react'
+import React from "react";
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
-      task: '',
-      status: 'to do'
-    }
+      task: "",
+      status: "to do",
+    };
   }
 
   render() {
     return (
-      <div></div>
-    )
+      <div>
+        <p>hello </p>
+      </div>
+    );
   }
 }
