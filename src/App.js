@@ -6,19 +6,28 @@ class App extends React.Component {
     super();
 
     this.state = {
-      task: "",
-      status: "to do",
+      tasks: [],
     };
   }
   addTask = (e) => {
     e.preventDefault();
-    console.log("task");
+    console.log(e + "je m'ajoute au form");
+  };
+  handleTaskDescriptionChange = (e) => {
+    console.log(e + "description");
+  };
+  handleSubmit = (e) => {
+    console.log(e + );
   };
 
   render() {
     return (
       <div>
-        <Form addTask={this.addTask} />
+        <Form
+          addTask={this.addTask}
+          change={this.handleTaskDescriptionChange}
+          submit={this.handleSubmit}
+        />
       </div>
     );
   }

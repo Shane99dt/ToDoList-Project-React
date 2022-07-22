@@ -1,6 +1,9 @@
 import React from "react";
 
 class Form extends React.Component {
+  constructor() {
+    super();
+  }
   render() {
     return (
       <>
@@ -8,7 +11,11 @@ class Form extends React.Component {
           className="flex items-center justify-center px-4 py-3 rounded-full"
           onSubmit={this.props.addTask}
         >
-          <input type="text" />
+          <input
+            type="text"
+            onSubmit={this.props.submit}
+            onChange={this.props.change}
+          />
           <button type="submit">zdfzvzs</button>
         </form>
       </>
