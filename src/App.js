@@ -27,7 +27,7 @@ class App extends React.Component {
     return (
       <div>
         <Form taskAdd={this.addTask} />
-        <List task={this.state.tasks} />
+        <List task={this.props.tasks} />
       </div>
     );
   }
