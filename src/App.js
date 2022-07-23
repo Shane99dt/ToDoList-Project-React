@@ -56,12 +56,25 @@ class App extends React.Component {
     // console.log(clonedTasks[i].description)
   }
 
+  filterTasks = (item) => {
+    const clonedTasks = [...this.state.tasks]
+    const filtered = clonedTasks.filter(task => task.status === item)
+
+    item !== "all" ? (this.setState({
+      tasks : filtered
+    })): (this.setState({
+      tasks : clonedTasks
+    }))
+
+    console.log(item)
+  }
+
 
   render() {
     return (
       <div>
         <Form taskAdd={this.addTask} />
-        <Filter/>
+        <Filter filterTasksFn = {this.filterTasks}/>
         <List
           tasks={this.state.tasks}
           delete={this.deleteTask}
