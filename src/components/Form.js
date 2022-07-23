@@ -17,7 +17,11 @@ class Form extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.taskAdd(this.state.task);
+    if(this.state.task){
+      this.props.taskAdd(this.state.task);
+    }else{
+      alert("Task cannot be empty")
+    }
 
     // reset the value
     this.setState({ task: "" });

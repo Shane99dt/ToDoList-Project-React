@@ -15,10 +15,7 @@ class Task extends Component {
     })
   }
 
-  taskModifySubmit = (e) => {
-    e.preventDefault()
-    console.log("d")
-  }
+
 
 
 
@@ -30,36 +27,37 @@ class Task extends Component {
             <>
               <p className="w-3/5 pl-2 py-2">{this.props.item.description}</p>
               <div>
-                <button className="p-2 " onClick={() => {this.props.modify(); this.modifyTaskShow(true)}}>Mod</button>
+                <button className="p-2 " onClick={() => this.modifyTaskShow(true)}>Mod</button>
+                {/* <button className="p-2 " onClick={() => {this.props.modify(); this.modifyTaskShow(true)}}>Mod</button> */}
                 <button className="p-2" onClick={() => this.props.delete(this.props.index)}>Sup</button>
               </div>
             </>
           ) : (
             <>
               <form
-                className="flex items-center justify-center px-4 py-3 rounded-full"
-                onSubmit={this.taskModifySubmit}>
-                <select onChange={this.props.changeStatus(this.props.item,this.props.index)}>
+                className="flex flex-row my-1 justify-center w-3/4 gap-2 border"
+                // onSubmit={this.taskModifySubmit}
+                >
+                {/* <select onChange={this.props.changeStatus(this.props.item,this.props.index)}> */}
+                <select>
                   <option value="to do" selected>To do</option>
                   <option value="doing">Doing</option>
                   <option value="done">Done</option>
                 </select>
                 <input
                   type="text"
-                  onChange={this.props.changeInputFn(this.props.item,this.props.index)}
+                  onChange={this.props.modifyDescription}
                   value={this.props.item.description}
-                  className="border"
+                  className="border grow"
                 />
                 <button
-                  className="ml-2"
+                  className="mx-2"
                   type="submit"
                   onClick={() => this.modifyTaskShow(false)}
                   >
                     Valid
                 </button>
               </form>
-
-              {/* <button onClick={() => this.modifyTaskShow(false)}>Valid</button> */}
             </>
           )}
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "./components/Form";
 import List from "./components/List";
+import Filter from "./components/Filter";
 // import Task from "./components/Task";
 class App extends React.Component {
   constructor() {
@@ -46,28 +47,28 @@ class App extends React.Component {
   //   console.log(clonedTasks[i])
   // }
 
-  // handleTaskDescriptionChange = (item, i) => {
-  //   const clonedTasks = [...this.state.tasks, ]
+  descriptionChange = (e, i) => {
+    // const clonedTasks = [...this.state.tasks]
+    // // const index = clonedTasks.indexOf(e)
+    // // console.log(clonedTasks)
+    // clonedTasks[i].description = e.target.value;
 
-  //   clonedTasks[i].description = item.target.value
+    // console.log(clonedTasks[i].description)
+  }
 
-  //   this.setState({
-  //     tasks : clonedTasks
-  //   })
-
-  //   console.log(item)
-  // }
 
   render() {
     return (
       <div>
         <Form taskAdd={this.addTask} />
+        <Filter/>
         <List
           tasks={this.state.tasks}
           delete={this.deleteTask}
           modifyFunction={this.modifyTask}
           changeStatusFn = {this.handleChangeStatus}
           changeInput = {this.handleTaskDescriptionChange}
+          modifyDescription = {this.descriptionChange}
         />
         {/* <List task={this.props.tasks} /> */}
       </div>
