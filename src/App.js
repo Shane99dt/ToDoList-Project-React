@@ -32,9 +32,10 @@ class App extends React.Component {
     });
   };
 
-  modifyTask = (item, i) => {
+  modifyTask = (i, description, status) => {
     const clonedTasks = [...this.state.tasks]
-    clonedTasks[i] = item
+    clonedTasks[i].description = description
+    clonedTasks[i].status = status
     this.setState({
       tasks: clonedTasks,
     })

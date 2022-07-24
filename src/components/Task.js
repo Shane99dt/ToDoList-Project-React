@@ -18,6 +18,14 @@ class Task extends Component {
     })
   }
 
+  setModifyIndex = (index) => {
+    this.setState({
+      modifyIndex: index,
+      editDescription: this.props.tasksList[index].description,
+      editStatus: this.props.tasksList[index].status
+    })
+  }
+
   changeTaskDescription = (e) => {
     this.setState({editDescription : e.target.value})
   }
@@ -28,10 +36,13 @@ class Task extends Component {
 
   handleSubmitModified = (e) => {
     e.preventDefault()
+
     this.props.modifyTask(
+      this.state.setModifyIndex,
       this.state.changeTaskDescription,
       this.state.changeStatus
     )
+
     console.log(this.state)
 
     this.reset()
@@ -54,7 +65,7 @@ class Task extends Component {
             <>
               <p className="w-3/5 pl-2 py-2">{this.props.item.description}</p>
               <div>
-                <button className="p-2 " onClick={() => this.modifyTaskShow(true)}>Mod</button>
+                <button className="p-2 " onClick={() => {this.modifyTaskShow(true); this.setModifyIndex(this.props.index)}}>Mod</button>
                 {/* <button className="p-2 " onClick={() => {this.props.modify(); this.modifyTaskShow(true)}}>Mod</button> */}
                 <button className="p-2" onClick={() => this.props.delete(this.props.index)}>Sup</button>
               </div>

@@ -11,11 +11,11 @@ class List extends Component {
               item = {item}
               index={i}
               delete = {this.props.delete}
-              modify = {this.props.modifyFunction}
+              modifyTask = {this.props.modifyFunction}
               changeStatus = {this.props.changeStatusFn}
               changeInputFn = {this.props.changeInput}
               modifyDescription = {this.props.modifyDescription}
-              // tasksList = {this.props.tasks}
+              tasksList = {this.props.tasks}
             />
           ))}
         </section>
