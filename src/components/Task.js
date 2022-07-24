@@ -38,9 +38,9 @@ class Task extends Component {
     e.preventDefault()
 
     this.props.modifyTask(
-      this.state.setModifyIndex,
-      this.state.changeTaskDescription,
-      this.state.changeStatus
+      this.state.modifyIndex,
+      this.state.editDescription,
+      this.state.setStatus
     )
 
     console.log(this.state)
@@ -61,11 +61,11 @@ class Task extends Component {
     return (
       <>
         <div className="flex flex-row my-1 justify-between w-3/4 gap-2 border">
-          {this.state.modify === false ? (
+          {this.state.modifyIndex !== this.props.index ?(
             <>
               <p className="w-3/5 pl-2 py-2">{this.props.item.description}</p>
               <div>
-                <button className="p-2 " onClick={() => {this.modifyTaskShow(true); this.setModifyIndex(this.props.index)}}>Mod</button>
+                <button className="p-2 " onClick={() => this.setModifyIndex(this.props.index)}>Mod</button>
                 <button className="p-2" onClick={() => this.props.delete(this.props.index)}>Sup</button>
               </div>
             </>
@@ -88,7 +88,6 @@ class Task extends Component {
                 <button
                   className="mx-2"
                   type="submit"
-                  onClick={() => this.modifyTaskShow(false)}
                   >
                     Valid
                 </button>
