@@ -5,7 +5,7 @@ class List extends Component {
   render() {
     return (
       <>
-        <section className="flex flex-col items-center border">
+        <section className="flex flex-col items-center mt-5">
           {this.props.tasks.map((item, i) => (
             <Task
               item = {item}

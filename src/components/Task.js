@@ -60,37 +60,42 @@ class Task extends Component {
   render() {
     return (
       <>
-        <div className="flex flex-row my-1 justify-between w-3/4 gap-2 border">
-          {this.state.modifyIndex !== this.props.index ?(
+        <div className="flex flex-row my-1 justify-between w-3/4 gap-2 border rounded pl-2">
+          {this.state.modifyIndex !== this.props.index ? (
             <>
-              <p className="w-3/5 pl-2 py-2">{this.props.item.description}</p>
+              <p className="w-3/5 pl-2 py-2 px-4 font-medium rounded grow">{this.props.item.description}</p>
               <div>
-                <button className="p-2 " onClick={() => this.setModifyIndex(this.props.index)}>Mod</button>
-                <button className="p-2" onClick={() => this.props.delete(this.props.index)}>Sup</button>
+                <button className="p-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" onClick={() => this.setModifyIndex(this.props.index)}>Edit</button>
+                <button className="p-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4" onClick={() => this.props.delete(this.props.index)}>Remove</button>
               </div>
             </>
           ) : (
             <>
               <form
-                className="flex flex-row my-1 justify-center w-3/4 gap-2 border"
+                className="flex flex-row my-1 justify-center w-full gap-2"
                 onSubmit={this.handleSubmitModified}>
-                <select onChange={this.changeStatus} defaultValue="to do">
-                  <option value="to do">To do</option>
-                  <option value="doing">Doing</option>
-                  <option value="done">Done</option>
+                <select onChange={this.changeStatus} defaultValue="to do" className="rounded px-1 font-medium">
+                  <option className="font-medium" value="to do">To do</option>
+                  <option className="font-medium" value="doing">Doing</option>
+                  <option className="font-medium" value="done">Done</option>
                 </select>
                 <input
                   type="text"
                   onChange={this.changeTaskDescription}
                   value={this.state.editDescription}
-                  className="border grow"
+                  className="border grow border-solid border-2 border-sky rounded px-2 py-1 font-medium"
                 />
-                <button
-                  className="mx-2"
-                  type="submit"
-                  >
-                    Valid
-                </button>
+                <div>
+                  <button
+                    className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+                    type="submit"
+                    >
+                      Valid
+                  </button>
+                  <button onClick={this.reset} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4">
+                    Cancel
+                  </button>
+                </div>
               </form>
             </>
           )}
