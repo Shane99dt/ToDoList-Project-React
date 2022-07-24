@@ -9,7 +9,7 @@ class App extends React.Component {
 
     this.state = {
       tasks: [],
-      filter: ''
+      filterStatus: ''
     };
   }
 
@@ -43,31 +43,7 @@ class App extends React.Component {
     console.log("task modified")
   }
 
-  // handleChangeStatus = (item, i) => {
-  //   const clonedTasks = [...this.state.tasks]
-  //   // clonedTasks[i].status = item.target.value
-  //   console.log(clonedTasks[i])
-  // }
-
-  // descriptionChange = (e, i) => {
-    // const clonedTasks = [...this.state.tasks]
-    // // const index = clonedTasks.indexOf(e)
-    // // console.log(clonedTasks)
-    // clonedTasks[i].description = e.target.value;
-
-    // console.log(clonedTasks[i].description)
-  // }
-
   filterTasks = (status) => {
-    // const clonedTasks = [...this.state.tasks]
-    // const filtered = clonedTasks.filter(task => task.status === item)
-
-    // item !== "all" ? (this.setState({
-    //   tasks : filtered
-    // })): (this.setState({
-    //   tasks : clonedTasks
-    // }))
-
 
     this.setState({filterStatus : status})
     console.log(status)
@@ -78,6 +54,7 @@ class App extends React.Component {
     const filteredTasks = this.state.tasks.filter(task => {
       return task.status === this.state.filterStatus || this.state.filterStatus === ''
     })
+    console.log(this)
 
     return (
       <div>
@@ -91,7 +68,6 @@ class App extends React.Component {
           changeInput = {this.handleTaskDescriptionChange}
           modifyDescription = {this.descriptionChange}
         />
-        {/* <List task={this.props.tasks} /> */}
       </div>
     );
   }

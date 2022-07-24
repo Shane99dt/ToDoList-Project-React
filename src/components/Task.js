@@ -66,7 +66,6 @@ class Task extends Component {
               <p className="w-3/5 pl-2 py-2">{this.props.item.description}</p>
               <div>
                 <button className="p-2 " onClick={() => {this.modifyTaskShow(true); this.setModifyIndex(this.props.index)}}>Mod</button>
-                {/* <button className="p-2 " onClick={() => {this.props.modify(); this.modifyTaskShow(true)}}>Mod</button> */}
                 <button className="p-2" onClick={() => this.props.delete(this.props.index)}>Sup</button>
               </div>
             </>
