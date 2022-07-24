@@ -6,6 +6,9 @@ class Task extends Component {
 
     this.state = {
       modify : false,
+      modifyIndex : null,
+      editDescription : '',
+      setStatus: ''
     };
   }
 
@@ -15,8 +18,32 @@ class Task extends Component {
     })
   }
 
+  changeTaskDescription = (e) => {
+    this.setState({editDescription : e.target.value})
+  }
 
+  changeStatus = (e) => {
+    this.setState({setStatus : e.target.value})
+  }
 
+  handleSubmitModified = (e) => {
+    e.preventDefault()
+    this.props.modifyTask(
+      this.state.changeTaskDescription,
+      this.state.changeStatus
+    )
+    console.log(this.state)
+
+    this.reset()
+  }
+
+  reset = () => {
+    this.setState({
+      modifyIndex : null,
+      editDescription: '',
+      setStatus: ''
+    })
+  }
 
 
   render() {
@@ -36,18 +63,16 @@ class Task extends Component {
             <>
               <form
                 className="flex flex-row my-1 justify-center w-3/4 gap-2 border"
-                // onSubmit={this.taskModifySubmit}
-                >
-                {/* <select onChange={this.props.changeStatus(this.props.item,this.props.index)}> */}
-                <select>
-                  <option value="to do" selected>To do</option>
+                onSubmit={this.handleSubmitModified}>
+                <select onChange={this.changeStatus} defaultValue="to do">
+                  <option value="to do">To do</option>
                   <option value="doing">Doing</option>
                   <option value="done">Done</option>
                 </select>
                 <input
                   type="text"
-                  onChange={this.props.modifyDescription}
-                  value={this.props.item.description}
+                  onChange={this.changeTaskDescription}
+                  value={this.state.editDescription}
                   className="border grow"
                 />
                 <button

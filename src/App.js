@@ -9,6 +9,7 @@ class App extends React.Component {
 
     this.state = {
       tasks: [],
+      filter: ''
     };
   }
 
@@ -47,36 +48,42 @@ class App extends React.Component {
   //   console.log(clonedTasks[i])
   // }
 
-  descriptionChange = (e, i) => {
+  // descriptionChange = (e, i) => {
     // const clonedTasks = [...this.state.tasks]
     // // const index = clonedTasks.indexOf(e)
     // // console.log(clonedTasks)
     // clonedTasks[i].description = e.target.value;
 
     // console.log(clonedTasks[i].description)
-  }
+  // }
 
-  filterTasks = (item) => {
-    const clonedTasks = [...this.state.tasks]
-    const filtered = clonedTasks.filter(task => task.status === item)
+  filterTasks = (status) => {
+    // const clonedTasks = [...this.state.tasks]
+    // const filtered = clonedTasks.filter(task => task.status === item)
 
-    item !== "all" ? (this.setState({
-      tasks : filtered
-    })): (this.setState({
-      tasks : clonedTasks
-    }))
+    // item !== "all" ? (this.setState({
+    //   tasks : filtered
+    // })): (this.setState({
+    //   tasks : clonedTasks
+    // }))
 
-    console.log(item)
+
+    this.setState({filterStatus : status})
+    console.log(status)
   }
 
 
   render() {
+    const filteredTasks = this.state.tasks.filter(task => {
+      return task.status === this.state.filterStatus || this.state.filterStatus === ''
+    })
+
     return (
       <div>
         <Form taskAdd={this.addTask} />
         <Filter filterTasksFn = {this.filterTasks}/>
         <List
-          tasks={this.state.tasks}
+          tasks={filteredTasks}
           delete={this.deleteTask}
           modifyFunction={this.modifyTask}
           changeStatusFn = {this.handleChangeStatus}
