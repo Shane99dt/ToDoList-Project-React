@@ -63,6 +63,7 @@ class Task extends Component {
         <div className="flex flex-row my-1 justify-between w-3/4 gap-2 border rounded pl-2">
           {this.state.modifyIndex !== this.props.index ? (
             <>
+              <p className="pl-2 py-2 px-4 font-medium rounded grow text-gray-500 capitalize ">{this.props.item.status}</p>
               <p className="w-3/5 pl-2 py-2 px-4 font-medium rounded grow">{this.props.item.description}</p>
               <div>
                 <button className="p-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" onClick={() => this.setModifyIndex(this.props.index)}>Edit</button>

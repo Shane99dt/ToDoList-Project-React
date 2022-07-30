@@ -67,6 +67,7 @@ class App extends React.Component {
           changeStatusFn = {this.handleChangeStatus}
           changeInput = {this.handleTaskDescriptionChange}
           modifyDescription = {this.descriptionChange}
+          tasksTitle = {this.state.filterStatus}
         />
       </div>
     );

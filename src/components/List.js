@@ -6,6 +6,7 @@ class List extends Component {
     return (
       <>
         <section className="flex flex-col items-center mt-5">
+          <h2 className="capitalize text-2xl font-semibold">{this.props.tasksTitle}</h2>
           {this.props.tasks.map((item, i) => (
             <Task
               item = {item}
